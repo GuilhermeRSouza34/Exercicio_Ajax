@@ -1,26 +1,32 @@
-cepForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+$(document).ready(function() {
+    $('#cep').mask('00000-000');
     
-    const cepInput = document.getElementById('cep');
-    const cep = cepInput.value.replace(/\D/g, '');
+    $('#cepForm').submit(function(e) {
+      e.preventDefault();
     
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          const data = JSON.parse(xhr.responseText);
+      const cepInput = $('#cep');
+      const cep = cepInput.val().replace(/\D/g, '');
+    
+      $.ajax({
+        url: `https://viacep.com.br/ws/${cep}/json/`,
+        dataType: 'json',
+        success: function(data) {
           if (data.erro) {
-            enderecoSpan.textContent = '';
+            $('#endereco').text('');
             alert('CEP não encontrado');
           } else {
-            enderecoSpan.textContent = `${data.logradouro}, ${data.localidade} - ${data.uf}`;
+            $('#endereco').text(`${data.logradouro}, ${data.localidade} - ${data.uf}`);
           }
-        } else {
-          enderecoSpan.textContent = '';
+        },
+        error: function() {
+          $('#endereco').text('');
           alert('Erro ao buscar o CEP');
         }
-      }
-    };
-    xhr.open('GET', `https://viacep.com.br/ws/${cep}/json/`);
-    xhr.send();
+      });
+    });
+    
+    $('#enviarBtn').click(function() {
+      $('#cepForm')[0].reset();
+      $('#endereco').text('');
+    });
   });
