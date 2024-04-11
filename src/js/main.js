@@ -6,11 +6,6 @@ $(document).ready(function() {
     
       const cepInput = $('#cep');
       const cep = cepInput.val().replace(/\D/g, '');
-      const btnBuscarCep = $('#buscarCepBtn');
-      const spinner = $('#spinner');
-    
-      btnBuscarCep.prop('disabled', true);
-      spinner.removeClass('d-none');
     
       $.ajax({
         url: `https://viacep.com.br/ws/${cep}/json/`,
@@ -26,10 +21,6 @@ $(document).ready(function() {
         error: function() {
           $('#endereco').text('');
           alert('Erro ao buscar o CEP');
-        },
-        complete: function() {
-          btnBuscarCep.prop('disabled', false);
-          spinner.addClass('d-none');
         }
       });
     });
