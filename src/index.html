@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-        <h1>Formulario para Cadastro</h1>
+        <h1>Preencher Formulario</h1>
         <form id="cepForm">
           <div class="form-group">
             <label for="nome">Nome:</label>
@@ -28,16 +28,19 @@
           </div>
           <div class="form-group">
             <label for="cep">CEP:</label>
-            <input type="text" class="form-control" id="cep" name="cep" required>
+            <div class="input-group">
+              <input type="text" class="form-control" id="cep" name="cep" required>
+              <button type="submit" class="btn btn-primary" id="buscarCepBtn">
+                <i class="bi bi-search"></i> Buscar
+                <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+              </button>
+            </div>
           </div>
           <div class="form-group">
             <label for="endereco">Endereço:</label>
             <span id="endereco"></span>
           </div>
-          <button type="submit" class="btn btn-primary"> <i class="bi bi-search"></i> Consultar</button>
-          <div class="mt-3">
-            <button type="button" class="btn btn-primary" id="enviarBtn">Enviar</button>
-          </div>
+          <button type="submit" class="btn btn-primary mt-3" id="enviarBtn">Enviar</button>
         </form>
       </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
