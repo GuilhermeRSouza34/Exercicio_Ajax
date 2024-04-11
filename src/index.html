@@ -1,39 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Consulta de Cep</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Formulario para Cadastro</h1>
-        <form id="cepForm">
-          <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-          </div>
-          <div class="form-group">
-            <label for="sobrenome">Sobrenome:</label>
-            <input type="text" id="sobrenome" name="sobrenome" required>
-          </div>
-          <div class="form-group">
-            <label for="dataNascimento">Data de Nascimento:</label>
-            <input type="date" id="dataNascimento" name="dataNascimento" required>
-          </div>
-          <div class="form-group">
-            <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" required>
-          </div>
-          <div class="form-group">
-            <label for="endereco">Endereço:</label>
-            <span id="endereco"></span>
-          </div>
-          <button type="submit">Consultar</button>
-        </form>
-      </div>
+      <h1>Consulta de CEP</h1>
+      <form id="cepForm">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            name="nome"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="sobrenome">Sobrenome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="sobrenome"
+            name="sobrenome"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="dataNascimento">Data de Nascimento:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="dataNascimento"
+            name="dataNascimento"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="cep">CEP:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cep"
+            name="cep"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="endereco">Endereço:</label>
+          <span id="endereco"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-search"></i> Consultar
+        </button>
+      </form>
+      <button type="button" class="btn btn-primary" id="enviarBtn">
+        Enviar
+      </button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
